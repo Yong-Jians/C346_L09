@@ -19,10 +19,10 @@ export default function App() {
       title:"Consonants" , bg : "khaki"}
   ];
 
-  const renderItem = ({item}) => {
+  const renderItem = ({item,index,section}) => {
     return (
         <TouchableOpacity style={styles.opacityStyle}>
-          <Text style={styles.textStyle}>{item.key}</Text>
+          <Text style={styles.textStyle}>{index} {item.key} {section.title}</Text>
         </TouchableOpacity>
     )
   }
