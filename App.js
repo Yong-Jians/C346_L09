@@ -8,13 +8,15 @@ export default function App() {
         {key: 'a'},
         {key: 'e'},
       ],
-      title:"Vowels"},
+      title:"Vowels",
+      bg : "skyblue"
+    },
     {data:[
         {key: 'b'},
         {key: 'c'},
         {key: 'd'},
       ],
-      title:"Consonants"}
+      title:"Consonants" , bg : "khaki"}
   ];
 
   const renderItem = ({item}) => {
@@ -25,9 +27,9 @@ export default function App() {
     )
   }
 
-  const renderSection = ({section : {title}  }) => {
+  const renderSection = ({section : {title,bg}  }) => {
     return (
-        <Text style={styles.headerText}>{title}</Text>
+        <Text style={[styles.headerText,{backgroundColor : bg}]}>{title}</Text>
     )
   }
 
