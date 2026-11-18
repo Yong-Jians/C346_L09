@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      <SectionList sections={datasource} renderItem={renderItem} renderSectionHeader={renderSection} />
+      <SectionList contentContainerStyle={{padding : 30,borderWidth : 5 ,borderColor : "red"}} sections={datasource} renderItem={renderItem} renderSectionHeader={renderSection} />
     </View>
   );
 }

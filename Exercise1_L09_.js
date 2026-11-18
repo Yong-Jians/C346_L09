@@ -45,7 +45,7 @@ export default function App() {
         <View style={styles.container}>
             <Text>Open up App.js to start working on your app!</Text>
             <StatusBar style="auto" />
-            <FlatList data={datasource} renderItem={renderItem}/>
+            <FlatList contentContainerStyle={{fontWeight : "bold"}} data={datasource} renderItem={renderItem}/>
         </View>
     );
 }
