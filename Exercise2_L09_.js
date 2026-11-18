@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , FlatList ,TouchableOpacity , SectionList} from 'react-native';
+import {Alert} from "react-native";
 
 export default function App() {
 
@@ -8,33 +9,56 @@ export default function App() {
                 {key: 'a'},
                 {key: 'e'},
             ],
-            title:"Vowels"},
+            title:"Vowels",
+            bg : "skyblue"
+        },
         {data:[
                 {key: 'b'},
                 {key: 'c'},
                 {key: 'd'},
             ],
-            title:"Consonants"}
+            title:"Consonants" , bg : "khaki"}
     ];
 
-    const renderItem = ({item}) => {
+    const renderItem = ({item,index,section}) => {
         return (
-            <TouchableOpacity style={styles.opacityStyle}>
-                <Text style={styles.textStyle}>{item.key}</Text>
+            <TouchableOpacity style={styles.opacityStyle} onPress={() => {Alert.alert("Clicked!")}}>
+                <Text style={styles.textStyle}>{index} {item.key} {section.title}</Text>
             </TouchableOpacity>
         )
     }
 
-    const renderSection = ({section : {title}  }) => {
+    const renderSection = ({section : {title,bg}  }) => {
         return (
-            <Text style={styles.headerText}>{title}</Text>
+            <Text style={[styles.headerText,{backgroundColor : bg}]}>{title}</Text>
         )
     }
 
 
     return (
         <View style={styles.container}>
-            <SectionList sections={datasource} renderItem={renderItem} renderSectionHeader={renderSection} />
+            <SectionList contentContainerStyle={{padding : 30,borderWidth : 5 ,borderColor : "red"}} sections={datasource} renderItem={renderItem} renderSectionHeader={renderSection} />
         </View>
     );
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
+    opacityStyle : {
+        borderWidth : 1
+    },
+    textStyle : {
+        fontSize : 20,
+        margin : 10,
+        textAlign : "left"
+    },
+    headerText : {
+        fontSize : 20,
+        margin : 10,
+        textAlign : "center",
+        fontWeight : "bold"
+    }
+});

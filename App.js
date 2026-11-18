@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View , FlatList ,TouchableOpacity , SectionList} from 'react-native';
+import {Alert} from "react-native";
 
 export default function App() {
 
@@ -21,7 +22,7 @@ export default function App() {
 
   const renderItem = ({item,index,section}) => {
     return (
-        <TouchableOpacity style={styles.opacityStyle}>
+        <TouchableOpacity style={styles.opacityStyle} onPress={() => {Alert.alert("Clicked!")}}>
           <Text style={styles.textStyle}>{index} {item.key} {section.title}</Text>
         </TouchableOpacity>
     )
